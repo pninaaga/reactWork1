@@ -1,0 +1,97 @@
+.nav-container{
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.btn-container{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    min-height: 4.5rem;
+}
+.btn-container button{
+    color: white;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+    margin: 1%;
+    min-width: fit-content;
+}
+.title{
+    color: #cdba5b;
+    font-size: 39px;
+    margin-left: 3%;
+    padding-left: 0;
+    font-family: cursive;
+}
+.search-container{
+    display: flex;
+}
+.employee-container{
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-wrap: wrap;
+    height:88vh;;
+    overflow: scroll;
+}
+.employee{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 33%;
+    min-height: 4rem;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    padding:0 1%;
+}
+.data-employee{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+}
+.data-employee p{
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0;
+    text-align: center;
+}
+.statusBtn{
+    background-color: black;
+    display: block;
+    color: #d3d086;
+    border: none;
+    margin: 2%;
+}
+.more-link{
+    color: #cdba5b;
+    cursor: pointer;
+    width: 13%;
+    text-align: center;
+}
+.more-link:hover{
+    color: #f5e388;
+}
+.payment-text, .payment-cancel-text{
+    display: block;
+    background-color: white;
+    border: 2px solid black;
+    position: absolute;
+    left: 85.7%;
+    color: #baa958;
+    border-radius: 10px;
+    font-size: 16px;
+    width: 6rem;
+    text-align: center;
+    height: 2rem;
+    top: 7%;
+}
+.payment-cancel-text{
+    width: 9rem;
+    left: 90%;
+}

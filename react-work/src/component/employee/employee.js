@@ -2,7 +2,6 @@ import react, { useState } from 'react'
 import { connect, connectAdvanced } from 'react-redux'
 import { Link } from 'react-router-dom'
 import './employee.css';
-// import $ from 'jquery'
 
 function mapStateToProps(state) {
     return {

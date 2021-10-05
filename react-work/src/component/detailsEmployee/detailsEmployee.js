@@ -1,6 +1,6 @@
 import react from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import img from '../../pic1.png'
+import img from '../../pic2.jpg'
 import './detailsEmployee.css'
 
 

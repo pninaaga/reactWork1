@@ -8,7 +8,7 @@ function DetailsEmployee() {
 
     const location = useLocation()
     const { employee } = location.state
-    debugger;
+
     return(
         <>
         <div className="details-comp-container">

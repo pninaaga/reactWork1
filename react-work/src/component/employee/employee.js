@@ -21,7 +21,6 @@ export default connect(mapStateToProps)(
         const [showPayment, setShowPayment] = useState(false)
         const [showCancelPayment, setShowCancelPayment] = useState(false)
 
-
         function searchEmployee(value) {
             setEmployeeName(value ? employee.filter(em => em.first_name.includes(value)) : employee)
         }
@@ -31,16 +30,6 @@ export default connect(mapStateToProps)(
         }
 
         function payment() {
-            // setChooseEmployee(chooseEmployee.map(item => {
-            //     if (!item["payment"]) {
-            //         debugger;
-            //         return { "item": item, "payment": true }
-            //     }
-            //     else {
-            //         debugger;
-            //         return item
-            //     }
-            // }));
             setEmployees(chooseEmployee.map(ite => {
                 let indexEm
                 employee.item ? indexEm = employee.item.indexOf(ite) : indexEm = employee.indexOf(ite)
@@ -50,7 +39,6 @@ export default connect(mapStateToProps)(
                     return ite
             }))
             setStatus({ statusEm: '', idEm: '-1' })
-            console.log('employee+payment', employee)
             setShowPayment(true)
         }
 
@@ -63,22 +51,18 @@ export default connect(mapStateToProps)(
                 else
                     employee[employee.indexOf(ite)]["payment"] = false
             }))
-            console.log('employee+payment', employee)
             setStatus({ statusEm: '', idEm: '-1' })
             setShowCancelPayment(true)
         }
         function checkAll() {
             setChooseEmployee(chooseEmployee.concat(employee))
             setAllCheck(true)
-           
-            setEmployees(employees)
         }
         function uncheckAll() {
             setChooseEmployee([])
             setAllCheck(false)
-            setEmployees(employees)
-
         }
+
         function changeCheckBox(e, id) {
             if (e.checked)
                 setChooseEmployee(chooseEmployee.concat(employee[id - 1]))
@@ -87,7 +71,6 @@ export default connect(mapStateToProps)(
         }
 
         function statusEmployee(id) {
-            debugger
             const statusEmp = employees.find(em => em.item && em.item.id == id)
             setStatus({ statusEm: statusEmp && statusEmp.payment, idEm: id })
         }
@@ -98,8 +81,7 @@ export default connect(mapStateToProps)(
                     <h3 className="title">Employee - exercise</h3>
                     <div className="btn-container">
                         <div className="search-container">
-                            <input class="form-control me-2" type="search"
-                                placeholder="Search" aria-label="Search" onChange={e => searchEmployee(e.target.value)} />
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" onChange={e => searchEmployee(e.target.value)} />
                         </div>
                         <button onClick={sortEmployee}>sort</button>
                         <button onClick={checkAll}>Check all</button>
@@ -112,27 +94,19 @@ export default connect(mapStateToProps)(
                 </div>
                 <div className="employee-container">{employeeName.map(em =>
                     <div className="employee">
-                        <input
-                            // checked={allCheck? true:false}
-                            class="form-check-input"
-                            type="checkbox" 
-                            value="" 
-                            id={em.id} 
-                            onChange={e => changeCheckBox(e.target, em.id)} />
+                        <input type="checkbox" id={em.id} onChange={e => changeCheckBox(e.target, em.id)} />
                         <div for={em.id} className="data-employee">
                             <p>{em.first_name}</p>
                             <p>{em.last_name}</p>
-                            <Link to={{
-                                pathname: `/${em.id}`,
-                                state: { employee: em }
-                            }} className="more-link">More</Link>
+                            <Link to={{ pathname: `/${em.id}`, state: { employee: em } }} className="more-link">More</Link>
                             <button
                                 style={{ 'display': chooseEmployee[chooseEmployee.indexOf(em)] ? 'block' : 'none' }}
                                 onClick={e => statusEmployee(em.id)} className="statusBtn">show status</button>
                             <p style={{ 'display': status.idEm == em.id ? 'block' : 'none' }}>
                                 {status.statusEm ? "true" : status.statusEm == false ? "false" : "don't have status"}</p>
                         </div>
-                    </div>)}</div>
+                    </div>)}
+                </div>
             </>
         )
     }

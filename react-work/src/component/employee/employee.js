@@ -95,7 +95,7 @@ export default connect(mapStateToProps)(
                 <div className="employee-container">{employeeName.map(em =>
                     <div className="employee">
                         <input
-                        checked={allCheck&&chooseEmployee.find(item=>item.id==em.id)?'checked':false}
+                        checked={chooseEmployee.find(item=>item.id==em.id)?'checked':false}
                          type="checkbox" id={em.id} onChange={e => changeCheckBox(e.target, em.id)} />
                         <div for={em.id} className="data-employee">
                             <p>{em.first_name}</p>
